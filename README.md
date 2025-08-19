@@ -1,4 +1,9 @@
-# 🐍 Multiplayer Snake (Server + Client)
+# 🐍 Multiplayer Snake — Lobby + 2‑Minute Rounds
+
+- Host-controlled **Start Game** in the lobby
+- **2-minute** timed rounds with visible countdown
+- **Back to Lobby** button for the host after the round
+- Players can **set their names** in the header (or via `?name=`)
 
 ## Run locally
 ```bash
@@ -7,7 +12,6 @@ npm start
 # open http://localhost:3000
 ```
 
-## Deploy (Render.com quick setup)
+## Deploy on Render
 - Build: `npm install`
 - Start: `npm start`
-- Free tier works. You get HTTPS URL like https://yourapp.onrender.com

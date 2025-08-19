@@ -7,19 +7,53 @@
   <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-  <div class="hud">
-    <div>
+  <header class="hud">
+    <div class="left">
       <h1>🐍 Multiplayer Snake</h1>
-      <div id="status">Connecting…</div>
-      <div id="you"></div>
+      <div id="phase"></div>
+      <div id="timer"></div>
     </div>
-    <div>
+    <div class="right">
+      <div id="hostBadge" class="badge hidden">Host</div>
+      <div class="nameRow">
+        <input id="nameInput" placeholder="Your name" maxlength="16" />
+        <button id="saveName">Set</button>
+      </div>
+      <div class="controlsRow">
+        <button id="startBtn" class="primary hidden">Start Game</button>
+        <button id="restartBtn" class="hidden">Back to Lobby</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="lobby" class="panel">
+      <h2>Lobby</h2>
+      <p id="lobbyInfo">Waiting for players… The host can start the round when ready.</p>
+      <ul id="lobbyList"></ul>
+    </section>
+
+    <canvas id="game" width="960" height="640"></canvas>
+
+    <section id="scorePanel" class="panel">
       <h2>Scoreboard</h2>
       <ol id="scores"></ol>
-    </div>
-  </div>
+    </section>
 
-  <canvas id="game" width="960" height="640"></canvas>
+    <div id="overlay" class="overlay hidden">
+      <div class="card">
+        <h3 id="overlayTitle">Game Over</h3>
+        <ol id="finalScores"></ol>
+        <div class="overlayActions">
+          <button id="overlayRestart" class="primary hidden">Back to Lobby</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>Controls: Arrow keys or WASD. On mobile: swipe on the canvas.</p>
+  </footer>
 
   <script src="/socket.io/socket.io.js"></script>
   <script src="/client.js"></script>
