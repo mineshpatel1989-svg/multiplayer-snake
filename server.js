@@ -74,7 +74,7 @@ function startRound(){
     p.alive=true; p.score=0; p.respawnAt=0;
   }
   spawnApplesIfNeeded();
-  // immediate emit so clients see playing phase right away
+  // immediately send state
   io.emit("state", buildState());
 }
 

@@ -1,13 +1,18 @@
 <!doctype html>
 <html><head>
-<meta charset="utf-8"><title>Snake v3</title>
+<meta charset="utf-8"><title>Snake v2.1</title>
 <link rel="stylesheet" href="/style.css">
 </head><body>
+<h2>Multiplayer Snake</h2>
 <div id="phase"></div><div id="timer"></div>
-<input id="nameInput" placeholder="Name"><button id="saveName">Set</button>
-<button id="startBtn">Start</button><button id="restartBtn">Lobby</button>
+<label>Name: <input id="nameInput" maxlength="16"></label><button id="saveName">Set</button>
+<span id="hostBadge" class="hidden">[Host]</span>
+<div>
+<button id="startBtn">Start Game</button>
+<button id="restartBtn">Back to Lobby</button>
+</div>
 <canvas id="game" width="960" height="640"></canvas>
-<div id="overlay" class="hidden"><h3>Game Over</h3></div>
+<div id="overlay" class="hidden"><h3>Game Over</h3><button id="overlayRestart">Back to Lobby</button></div>
 <ol id="scores"></ol>
 <script src="/socket.io/socket.io.js"></script><script src="/client.js"></script>
 </body></html>
