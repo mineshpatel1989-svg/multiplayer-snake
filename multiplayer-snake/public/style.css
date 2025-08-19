@@ -1,0 +1,6 @@
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:#0b1020;color:#eef2ff}
+.hud{display:flex;justify-content:space-between;gap:24px;align-items:flex-start;padding:12px 16px;background:#0f172a;border-bottom:1px solid #1e293b}
+h1,h2{margin:0}
+#scores{margin:6px 0 0 20px;padding:0}
+#scores li{margin:2px 0}
+canvas{display:block;margin:12px auto;border:1px solid #1f2937;background:#030712;box-shadow:0 8px 20px rgba(0,0,0,.35)}

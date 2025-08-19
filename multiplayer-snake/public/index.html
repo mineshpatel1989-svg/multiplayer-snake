@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Multiplayer Snake</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="hud">
+    <div>
+      <h1>🐍 Multiplayer Snake</h1>
+      <div id="status">Connecting…</div>
+      <div id="you"></div>
+    </div>
+    <div>
+      <h2>Scoreboard</h2>
+      <ol id="scores"></ol>
+    </div>
+  </div>
+
+  <canvas id="game" width="960" height="640"></canvas>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/client.js"></script>
+</body>
+</html>
