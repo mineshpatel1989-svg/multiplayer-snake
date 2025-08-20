@@ -21,8 +21,8 @@ const KILL_BONUS = 2;              // killer bonus when someone hits your body
 
 // Modes
 const MODES = {
-  classic: { deathPenalty: "reset" }, // score -> 0
-  balanced: { deathPenalty: "minus3" } // score -= 3, min 0
+  classic: { deathPenalty: "reset" },    // score -> 0
+  balanced: { deathPenalty: "minus3" }   // score -= 3 (min 0)
 };
 let mode = "balanced"; // default
 
@@ -82,7 +82,7 @@ function resetToLobby(){
   assignHostIfNeeded();
 }
 
-function (re)spawnPlayer(p){
+function respawnPlayer(p){
   const x = randInt(GRID_WIDTH), y = randInt(GRID_HEIGHT);
   p.snake = createSnake(x,y);
   p.dir = {x:1,y:0};
@@ -100,8 +100,7 @@ function startRound(){
   apples = [];
   for(const p of players.values()){
     if(p.spectator){ p.alive=false; continue; }
-    // allow even un-ready players to join, but ready is required to unlock start
-    (re)spawnPlayer(p);
+    respawnPlayer(p);
     p.score = 0;
     p.respawnAt = 0;
     p.kills=0; p.deaths=0; p.applesEaten=0; p.longest=p.snake.length; p.streak=0;
@@ -157,7 +156,7 @@ io.on("connection",(socket)=>{
     if(typeof color === "string" && /^#?[0-9a-fA-F]{6}$/.test(color)){
       p.color = color.startsWith("#") ? color : ("#"+color);
     }
-    if(typeof head === "string" && HEADS.includes(head)){ p.head = head; }
+    if(typeof head === "string" && ["🐸","🦄","🐧","🐙","🐝","🐲","🦖","👾","😎","🦈"].includes(head)){ p.head = head; }
   });
 
   socket.on("setReady",(val)=>{
@@ -167,7 +166,7 @@ io.on("connection",(socket)=>{
 
   socket.on("hostSetMode",(m)=>{
     if(id !== hostId) return;
-    if(MODES[m]) mode = m;
+    if(Object.keys(MODES).includes(m)) mode = m;
   });
 
   socket.on("start",()=>{ if(id===hostId && phase==="lobby") startRound(); });
@@ -272,7 +271,7 @@ function gameTick(){
       // Respawns
       for(const p of players.values()){
         if(!p.spectator && !p.alive && p.respawnAt && now >= p.respawnAt){
-          (re)spawnPlayer(p);
+          respawnPlayer(p);
         }
       }
     }
