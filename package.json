@@ -1,6 +1,6 @@
 {
   "name": "multiplayer-snake",
-  "version": "2.1.0",
+  "version": "2.5.0",
   "private": true,
   "type": "module",
   "scripts": {

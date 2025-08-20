@@ -1,2 +1,1 @@
-# Multiplayer Snake v3
-Fixed overlay issue and immediate start state.
+# v2.5 — ready-up, cosmetics, shield, modes
