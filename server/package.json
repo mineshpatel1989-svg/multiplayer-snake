@@ -1,8 +1,11 @@
 {
   "name": "multiplayer-snake",
-  "version": "2.5.2",
+  "version": "2.6.0",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=18 <23"
+  },
   "scripts": {
     "start": "node server.js"
   },
